@@ -1,0 +1,69 @@
+{
+  "name": "react-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@adobe/cq-react-editable-components": "~1.2.0",
+    "@adobe/cq-spa-component-mapping": "~1.0.3",
+    "@adobe/cq-spa-page-model-manager": "~1.1.1",
+    "@babel/preset-env": "^7.8.6",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-stage-2": "^7.8.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "8.0.5",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "node-fetch": "^2.6.0",
+    "node-sass": "^4.11.0",
+    "npm": "^6.9.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-fast-compare": "^2.0.4",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^2.1.8",
+    "react-styleguidist": "^9.0.6",
+    "regenerator-runtime": "^0.13.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && webpack && clientlib --verbose",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
+  },
+  "proxy": "http://localhost:4502",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "aem-clientlib-generator": "^1.4.1",
+    "ajv": "^6.10.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "clone": "^2.1.2",
+    "css-loader": "^3.4.2",
+    "ignore-styles": "^5.0.1",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "typescript": "^3.4.2",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.7",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-shell-plugin": "^0.5.0"
+  }
+}
