@@ -33,6 +33,43 @@ Or to deploy only the bundle to the author, run
 
     mvn clean install -PautoInstallBundle
 
+## Enabling Server Side Rendering (SSR)
+
+A SPA can be rendered in two ways:
+
+ - Client-side which is where th SPA code is loaded in the browser as a compiled JS or
+ - Server-side where a separate server renders the HTML and hands it off to AEM to render
+
+Adobe's recommendation for SPA Editor applications is that the SSR scenario is done via an I/O Runtime action. The example in this project demonstrates the following:
+
+ - Build an SSR Runtime (OpenWhisk) action
+ - Add the SPA dist package to the action
+ - Create an action package
+ - Deploy the action in Runtime
+
+To support this a new Maven profile called `serverSideRender` is introduced. This profile encapsulates properties and maven execution that will package and deploy the Runtime action and also setup properties within the AEM project to specify the URL of the action.
+
+Managing the action process relies heavily on the aio-cli tool. You can find the documentation about the aio-cli tool in [this GitHub repo](https://github.com/adobe/aio-cli).
+
+### Running OpenWhisk locally
+
+ 1. docker pull openwhisk/action-nodejs-v10:latest
+ 2. docker pull adobeapiplatform/adobe-action-nodejs-v10:3.0.21
+ 3. cd aem-guides/wknd/events/react-server
+ 4. create .env file with the following
+```
+# Specify your secrets here
+# This file should not be committed to source control
+## please provide your Adobe I/O Runtime credentials
+# AIO_RUNTIME_AUTH=
+# AIO_RUNTIME_NAMESPACE=
+```
+ 5. aio app run --local
+ 6. that command will create a .env.app.save file. Copy it’s content in .env
+ 7. cd ..
+ 8. mvn clean install -PautoInstallPackage -P serverSideRender
+ 9. navigate to [WKND Home](http://localhost:4502/content/wknd-events/react)
+
 ## Testing
 
 There are three levels of testing contained in the project:

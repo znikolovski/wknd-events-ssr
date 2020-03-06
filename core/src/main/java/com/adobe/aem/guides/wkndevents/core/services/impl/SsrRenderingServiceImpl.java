@@ -63,20 +63,16 @@ public class SsrRenderingServiceImpl extends SlingSafeMethodsServlet implements 
 
   private static final Logger log = LoggerFactory.getLogger(SsrRenderingServiceImpl.class);
 
-    private static final String ANGULAR_SELECTOR = "angular";
-
     @Reference
     private HttpClientBuilderFactory clientBuilderFactory;
 
-    private String host_react;
-    private String host_angular;
-    private boolean ssr_enabled;
+    private String HOST;
+    private boolean SSRENABLED;
 
     @Activate
     protected void activate(Configuration configuration) {
-        host_react = configuration.spa_ssr_react_server();
-        host_angular = configuration.spa_ssr_angular_server();
-        ssr_enabled = configuration.ssr_enabled();
+        HOST = configuration.spa_ssr_react_server();
+        SSRENABLED = configuration.ssr_enabled();
     }
 
     @Override
@@ -89,10 +85,7 @@ public class SsrRenderingServiceImpl extends SlingSafeMethodsServlet implements 
     public void processSPARequest(SlingHttpServletRequest request, SlingHttpServletResponse response)
         throws IOException {
       try {
-        if(ssr_enabled) {
-          // this should come from a config
-          final String HOST = request.getPathInfo().toLowerCase().contains(ANGULAR_SELECTOR) ? host_angular : host_react;
-
+        if(SSRENABLED) {
           CloseableHttpClient client = clientBuilderFactory.newBuilder().build();
 
           ObjectMapper mapper = new ObjectMapper();

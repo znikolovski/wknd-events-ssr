@@ -11,7 +11,6 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
 public interface SsrRenderingService {
   public static final String DEFAULT_HOST_REACT = "http://localhost:4200";
-  public static final String DEFAULT_HOST_ANGULAR = "http://localhost:4000";
   public static final boolean DEFAULT_SSR_ENABLED = false;
 
   default void processSPARequest(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
@@ -27,13 +26,6 @@ public interface SsrRenderingService {
                 type = AttributeType.STRING
         )
         String spa_ssr_react_server() default DEFAULT_HOST_REACT;
-
-        @AttributeDefinition(
-                name = "Angular Node Server URL",
-                description = "full URL, i.e. " + DEFAULT_HOST_ANGULAR,
-                type = AttributeType.STRING
-        )
-        String spa_ssr_angular_server() default DEFAULT_HOST_ANGULAR;
 
         @AttributeDefinition(
                 name = "SSR Enabled",
