@@ -6,6 +6,7 @@ This is the code companion for a tutorial that walks through the process of sett
 
 The main parts of the template are:
 
+* react-server: an I/O Runtime action project built with aio-cli. The Runtime action is a serverless server-side rendering environment for the react App.
 * react-app: a webpack project for the React application. The App is built and deployed to AEM in the form of a client library via the ui.apps module. see the README beneath the react-app for more details.
 * core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
 * ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates, runmode specific configs as well as Hobbes-tests
@@ -69,6 +70,16 @@ Managing the action process relies heavily on the aio-cli tool. You can find the
  7. cd ..
  8. mvn clean install -PautoInstallPackage -P serverSideRender
  9. navigate to [WKND Home](http://localhost:4502/content/wknd-events/react)
+
+## Deploying with SSR enabled
+
+In order to synchronise the AEM deployment with the Runtime action deployment and at the same time remove any downtime requirements we're using the overall maven project version number to create versioned release artefacts.
+
+Once the maven project version is updated and a mvn build initiated, the Runtime action package will use that version to construct the action endpoint.
+
+e.g. say the action end point is /api/v1/web/guest/react-server-${version}/ssr and the maven project version is 1.0.3 the end result is that after the maven run the action will be deployed at /api/v1/web/guest/react-server-1.0.3/ssr
+
+This also means that until the new code is deployed in AEM, AEM will still reference the previous version of the action (e.g. 1.0.2) which won't be overwritten by the new deployment.
 
 ## Testing
 
