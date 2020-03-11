@@ -11,6 +11,7 @@ dist
 # Config
 config.json
 .env
+package-lock.json
 
 # Test output
 junit.xml
