@@ -19,7 +19,7 @@
     <groupId>com.adobe.aem.guides</groupId>
     <artifactId>aem-guides-wknd-events</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>1.1.2</version>
     <description>WKND Events</description>
 
     <modules>
