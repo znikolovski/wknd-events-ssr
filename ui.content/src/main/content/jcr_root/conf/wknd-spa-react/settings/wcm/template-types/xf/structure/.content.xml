@@ -3,9 +3,9 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:template="/conf/wknd-spa-react/settings/wcm/templates/empty-experience-fragment"
+        cq:template="/conf/wknd-spa-react/settings/wcm/templates/xf-web-variation"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="wknd-spa-react/components/page">
+        sling:resourceType="wknd-spa-react/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wknd-spa-react/components/container"

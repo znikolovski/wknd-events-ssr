@@ -12,5 +12,15 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-*/-->
+
+
+
 <sly data-sly-use.body="body.js" data-sly-resource="${body.resourcePath @ selectors=[]}"/>
+*/-->
+
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="spa-root"></div>
+
+<div data-sly-resource="${'cloudservices' @ resourceType='cq/cloudserviceconfigs/components/servicecomponents'}"
+     data-sly-unwrap></div>
+<sly data-sly-include="footerlibs.html"/>

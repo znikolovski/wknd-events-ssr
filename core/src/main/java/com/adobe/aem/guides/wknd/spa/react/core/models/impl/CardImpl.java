@@ -1,13 +1,19 @@
 package com.adobe.aem.guides.wknd.spa.react.core.models.impl;
 
 import java.util.Calendar;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import com.adobe.aem.guides.wknd.spa.react.core.models.Card;
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.wcm.core.components.models.Image;
+import com.adobe.cq.wcm.core.components.models.ImageArea;
+import com.adobe.cq.wcm.core.components.models.datalayer.ComponentData;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import com.drew.lang.annotations.Nullable;
+
 import org.apache.sling.models.annotations.*;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -44,7 +50,8 @@ public class CardImpl implements Card {
     private String cardTitle;
 
     /***
-     * Made available via https://docs.adobe.com/content/help/en/experience-manager-htl/using/htl/global-objects.html#java-backed-objects
+     * Made available via
+     * https://docs.adobe.com/content/help/en/experience-manager-htl/using/htl/global-objects.html#java-backed-objects
      */
     @ScriptVariable
     PageManager pageManager;
@@ -55,12 +62,15 @@ public class CardImpl implements Card {
     private Page cardPage;
 
     @PostConstruct
-    // PostConstructs are called after all the injection has occurred, but before the Model object is returned for use.
+    // PostConstructs are called after all the injection has occurred, but before
+    // the Model object is returned for use.
     public void initModel() {
         // Note that @PostConstruct code will always be executed on Model instantiation.
-        // If the work done in PostConstruct is expensive and not always used in the consumption of the model, it is
-        // better to lazy-execute the logic in the getter and persist the result in  model state if it is requested again.
-        if(StringUtils.isNotBlank(cardPath) && pageManager != null) {
+        // If the work done in PostConstruct is expensive and not always used in the
+        // consumption of the model, it is
+        // better to lazy-execute the logic in the getter and persist the result in
+        // model state if it is requested again.
+        if (StringUtils.isNotBlank(cardPath) && pageManager != null) {
             cardPage = pageManager.getPage(this.cardPath);
         }
     }
@@ -85,7 +95,7 @@ public class CardImpl implements Card {
 
     @Override
     public String getCtaLinkURL() {
-        if(cardPage != null) {
+        if (cardPage != null) {
             return cardPage.getPath() + ".html";
         }
         return null;
@@ -98,15 +108,15 @@ public class CardImpl implements Card {
 
     @Override
     public Calendar getCardLastModified() {
-    if(cardPage != null) {
-        return cardPage.getLastModified();
-    }
-    return null;
+        if (cardPage != null) {
+            return cardPage.getLastModified();
+        }
+        return null;
     }
 
     @Override
     public String getCardTitle() {
-        if(titleFromPage) {
+        if (titleFromPage) {
             return cardPage != null ? cardPage.getTitle() : null;
         }
         return cardTitle;
@@ -116,5 +126,103 @@ public class CardImpl implements Card {
     public String getExportedType() {
         return CardImpl.RESOURCE_TYPE;
     }
+
+    @Override
+    public boolean displayPopupTitle() {
+        // TODO Auto-generated method stub
+        return image.displayPopupTitle();
+    }
+
+    @Override
+    @Nullable
+    public List<ImageArea> getAreas() {
+        if (null == image) {
+            return null;
+        }
+
+        return image.getAreas();
+    }
+
+    @Override
+    public String getFileReference() {
+        if (null == image) {
+            return null;
+        }
+
+        return image.getFileReference();
+    }
+
+    @Override
+    public String getJson() {
+        if (null == image) {
+            return null;
+        }
+        return image.getJson();
+    }
+
+    @Override
+    public int getLazyThreshold() {
+        if (null == image) {
+            return 0;
+        }
+
+        return image.getLazyThreshold();
+    }
+
+    @Override
+    public String getLink() {
+        if (null == image) {
+            return null;
+        }
+
+        return image.getLink();
+    }
+
+    @Override
+    public String getSrcUriTemplate() {
+        if (null == image) {
+            return null;
+        }
+
+        return image.getSrcUriTemplate();
+    }
+
+    @Override
+    public String getUuid() {
+        if (null == image) {
+            return null;
+        }
+
+        return image.getUuid();
+    }
+
+    @Override
+    public int[] getWidths() {
+        if (null == image) {
+            return null;
+        }
+
+        return image.getWidths();
+    }
+
+    @Override
+    public boolean isDecorative() {
+        if (null == image) {
+            return false;
+        }
+
+        return image.isDecorative();
+    }
+
+    @Override
+    public boolean isLazyEnabled() {
+        if (null == image) {
+            return false;
+        }
+
+        return image.isLazyEnabled();
+    }
+
+    
 
 }

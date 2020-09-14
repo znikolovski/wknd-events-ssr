@@ -28,6 +28,7 @@
         <module>all</module>
         <module>core</module>
         <module>ui.frontend</module>
+        <module>ui.server-side</module>
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
         <module>ui.content</module>
@@ -44,11 +45,10 @@
         <sling.password>admin</sling.password>
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
-        <core.wcm.components.version>2.9.0</core.wcm.components.version>
+        <core.wcm.components.version>2.11.0</core.wcm.components.version>
         <bnd.version>5.0.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spa.project.core.version>1.0.6</spa.project.core.version>
         <aem.sdk.api>2020.6.3614.20200604T023048Z-200507</aem.sdk.api>
     </properties>
 
@@ -534,6 +534,15 @@ Bundle-DocURL:
                 </pluginManagement>
             </build>
         </profile>
+        <profile>
+            <id>serverSideRender</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <ssr.render>true</ssr.render>
+            </properties>
+        </profile>
     </profiles>
 
 
@@ -694,19 +703,6 @@ Bundle-DocURL:
                 <artifactId>core.wcm.components.config</artifactId>
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
-            </dependency>
-
-            <!-- SPA Project Core (includes hierarchy page model) -->
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>spa.project.core.ui.apps</artifactId>
-                <type>zip</type>
-                <version>${spa.project.core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.adobe.aem</groupId>
-                <artifactId>spa.project.core.core</artifactId>
-                <version>${spa.project.core.version}</version>
             </dependency>
 
             <!-- Testing -->

@@ -476,6 +476,19 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </default>
             </spa>
+            <xfpage jcr:primaryType="nt:unstructured">
+                <default
+                    jcr:lastModified="{Date}2020-08-20T12:27:45.273+10:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="WKND SPA React XF Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    clientlibs="wknd-spa-react.react"
+                    isRoot="true"
+                    structureDepth="0">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </default>
+            </xfpage>
             <header jcr:primaryType="nt:unstructured">
                 <policy_1590527695354
                     jcr:lastModified="{Date}2020-05-26T14:15:57.626-07:00"
@@ -498,7 +511,7 @@
                 <responsivegrid jcr:primaryType="nt:unstructured">
                     <spa-default
                         jcr:description="Includes only SPA-Enabled components."
-                        jcr:lastModified="{Date}2020-07-22T11:33:36.606-07:00"
+                        jcr:lastModified="{Date}2020-08-20T12:37:06.999+10:00"
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         jcr:title="SPA Content"

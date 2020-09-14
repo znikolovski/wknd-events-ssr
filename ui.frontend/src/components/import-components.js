@@ -15,9 +15,20 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 import './Page/Page';
+import './ExperienceFragmentPage/ExperienceFragmentPage';
+import './ExperienceFragment/ExperienceFragment';
 import './Text/Text';
 import './Image/Image';
 import './Navigation/Navigation';
 import './Header/Header';
 import './Custom/Custom';
 import './Card/Card';
+
+/*
+    Carousel imports
+*/
+import { MapTo } from '@adobe/aem-spa-component-mapping';
+import * as SpaCoreComponents from "@adobe/aem-core-components-react-spa";
+const {CarouselV1, CarouselV1IsEmptyFn} = SpaCoreComponents;
+require('./Carousel/Carousel.css');
+MapTo('wknd-spa-react/components/carousel')(CarouselV1, {isEmpty: CarouselV1IsEmptyFn});

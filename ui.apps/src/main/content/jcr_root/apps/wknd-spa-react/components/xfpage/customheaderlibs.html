@@ -1,5 +1,5 @@
 <!--/*
-    Copyright 2019 Adobe
+    Copyright 2017 Adobe Systems Incorporated
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -13,11 +13,26 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-call="${clientlib.js @ categories='wknd-spa-react.dependencies'}"/>
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
      data-sly-call="${clientlib.css @ categories='wknd-spa-react.base'}"/>
+<!--/*
+    SPA-specific meta tags
+*/-->
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="/etc.clientlibs/wknd-spa-react/clientlibs/clientlib-react/resources/favicon.ico" />
+<link rel="apple-touch-icon" href="/etc.clientlibs/wknd-spa-react/clientlibs/clientlib-react/resources/logo192.png" />
 
-<!--/* Include Context Hub */-->
-<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>
+<!-- AEM page model -->
+<meta
+    property="cq:pagemodel_root_url"
+    data-sly-use.page="com.adobe.aem.guides.wknd.spa.react.core.models.Page"
+    content="${page.hierarchyRootJsonExportUrl}"
+/>
+<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Asar&display=swap" rel="stylesheet"/>
+<meta property="cq:datatype" data-sly-test="${wcmmode.edit || wcmmode.preview}" content="JSON" />
+<meta property="cq:wcmmode" data-sly-test="${wcmmode.edit}" content="edit" />
+<meta property="cq:wcmmode" data-sly-test="${wcmmode.preview}" content="preview" />
+<!--/*
+    There is currently no support for ContextHub in SPA projects:
+    https://docs.adobe.com/content/help/en/experience-manager-64/developing/headless/spas/spa-overview.html#limitations
+*/-->

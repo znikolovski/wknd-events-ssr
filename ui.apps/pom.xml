@@ -68,18 +68,7 @@
                             <artifactId>wknd-spa-react.core</artifactId>
                             <target>/apps/wknd-spa-react/install</target>
                         </embedded>
-                        <embedded>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.core</artifactId>
-                            <target>/apps/wknd-spa-react/install</target>
-                        </embedded>
                     </embeddeds>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.adobe.aem</groupId>
-                            <artifactId>spa.project.core.ui.apps</artifactId>
-                        </dependency>
-                    </dependencies>
                 </configuration>
             </plugin>
             <plugin>
@@ -134,16 +123,6 @@
             <type>zip</type>
         </dependency>
 
-        <!-- SPA Project Core (includes hierarchy page) -->
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.ui.apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.core</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.adobe.aem.guides</groupId>
             <artifactId>wknd-spa-react.ui.apps.structure</artifactId>
@@ -235,11 +214,6 @@
                                     <artifactId>wknd-spa-react.core</artifactId>
                                     <target>/apps/wknd-spa-react/install</target>
                                 </embedded>
-                                <embedded>
-                                    <groupId>com.adobe.aem</groupId>
-                                    <artifactId>spa.project.core.core</artifactId>
-                                    <target>/apps/wknd-spa-react/install</target>
-                                </embedded>
                                 <!-- Embed Core Component dependency 6.x -->
                                 <embedded>
                                     <groupId>com.adobe.cq</groupId>
@@ -255,10 +229,6 @@
                                 <dependency>
                                     <groupId>com.adobe.cq</groupId>
                                     <artifactId>core.wcm.components.config</artifactId>
-                                </dependency>
-                                <dependency>
-                                    <groupId>com.adobe.aem</groupId>
-                                    <artifactId>spa.project.core.ui.apps</artifactId>
                                 </dependency>
                             </dependencies>
                     </configuration>

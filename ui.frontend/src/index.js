@@ -21,18 +21,45 @@ import 'react-app-polyfill/stable';
 import 'react-app-polyfill/ie9';
 import 'custom-event-polyfill';
 
-import { Constants, ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { Constants, ModelManager } from '@adobe/aem-spa-page-model-manager';
 import { createBrowserHistory } from 'history';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router } from 'react-router-dom';
 import App from './App';
+import AppPage from './components/Page/Page'
 import './components/import-components';
 import './index.scss';
 
 document.addEventListener('DOMContentLoaded', () => {
   ModelManager.initialize().then(pageModel => {
     const history = createBrowserHistory();
+
+    const targetView = function() {
+      if (window) {
+        var viewName = window.location.pathname; // or use window.location.pathName if router works on path and not hash
+
+        console.log("View Name: " + viewName);
+
+        viewName = viewName || 'home'; // view name cannot be empty
+
+        // Sanitize viewName to get rid of any trailing symbols derived from URL
+        if (viewName.startsWith('#') || viewName.startsWith('/')) {
+            viewName = viewName.substr(1);
+        }
+
+        var adobe = window.adobe || {};
+
+        // Validate if the Target Libraries are available on your website
+        console.log("Check result: " + (typeof adobe != 'undefined' && adobe.target && typeof adobe.target.triggerView === 'function'));
+        if (typeof adobe != 'undefined' && adobe.target && typeof adobe.target.triggerView === 'function') {
+            adobe.target.triggerView(viewName);
+        }
+      }
+    };
+
+    history.listen(targetView);
+
     render(
       <Router history={history}>
         <App

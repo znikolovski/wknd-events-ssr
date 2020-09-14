@@ -14,8 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { MapTo } from '@adobe/cq-react-editable-components';
-import DOMPurify from 'dompurify';
+import { MapTo } from '@adobe/aem-react-editable-components';
 import React, { Component } from 'react';
 import extractModelId from '../../utils/extract-model-id';
 
@@ -44,7 +43,7 @@ class Text extends Component {
         id={extractModelId(this.props.cqPath)}
         data-rte-editelement
         dangerouslySetInnerHTML={{
-          __html: DOMPurify.sanitize(this.props.text)
+          __html: this.props.text
         }}
       />
     );

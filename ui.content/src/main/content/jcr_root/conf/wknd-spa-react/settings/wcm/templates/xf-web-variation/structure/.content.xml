@@ -5,10 +5,10 @@
         cq:deviceGroups="[mobile/groups/responsive]"
         cq:template="/conf/wknd-spa-react/settings/wcm/templates/xf-web-variation"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="wknd-spa-react/components/page">
+        sling:resourceType="wknd-spa-react/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="wknd-spa-react/components/container"
+            sling:resourceType="wcm/foundation/components/responsivegrid"
             editable="{Boolean}true"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
